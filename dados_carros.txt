@@ -1,2 +1,2 @@
-Volkswagen,jeep,a, 30000
-Fiat,Jeep,B, 29999
+?,?,?safasd, a
+dad,a,dadasd, as

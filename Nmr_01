@@ -1,0 +1,40 @@
+import os
+os.system("cls || clear")
+
+# Crie uma função que aceite dois números e realize 
+# as operações de soma, subtração, multiplicação e 
+# divisão com base na escolha do usuário.
+
+def calculadora():
+    # Solicita os números e a operação
+    num1 = float(input("Digite o primeiro número: "))
+    num2 = float(input("Digite o segundo número: "))
+    
+    print("Escolha a operação:")
+    print("1. Soma")
+    print("2. Subtração")
+    print("3. Multiplicação")
+    print("4. Divisão")
+    
+    operacao = input("Digite o número da operação desejada (1/2/3/4): ")
+    
+    if operacao == '1':
+        resultado = num1 + num2
+        print(f"O resultado da soma é: {resultado}")
+    elif operacao == '2':
+        resultado = num1 - num2
+        print(f"O resultado da subtração é: {resultado}")
+    elif operacao == '3':
+        resultado = num1 * num2
+        print(f"O resultado da multiplicação é: {resultado}")
+    elif operacao == '4':
+        if num2 != 0:
+            resultado = num1 / num2
+            print(f"O resultado da divisão é: {resultado}")
+        else:
+            print("Erro! Divisão por zero não é permitida.")
+    else:
+        print("Operação inválida. Tente novamente.")
+
+# Chama a função da calculadora
+calculadora()

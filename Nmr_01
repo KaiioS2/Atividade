@@ -1,40 +1,119 @@
 import os
+import time
+
 os.system("cls || clear")
 
-# Crie uma função que aceite dois números e realize 
-# as operações de soma, subtração, multiplicação e 
-# divisão com base na escolha do usuário.
+# Função para verificar se a lista está vazia.
+# Se a lista não tem conteúdo, retorna o valor: True (Verdadeiro)
+def verificar_lista_vazia(lista_fucionario):
+    if not lista_fucionario:
+        print("\nA lista está vazia.")
+        return True
+    return False # Se a lista possuir algum conteúdo
 
-def calculadora():
-    # Solicita os números e a operação
-    num1 = float(input("Digite o primeiro número: "))
-    num2 = float(input("Digite o segundo número: "))
+# Função para adicionar fucionario.
+def adicionar(lista_fucionario):
+    nome = input("Digite o nome que deseja adicionar: ")
+    data_nascimento = input("Digite a data de nascimento: ")
+    cpf = input("Digite o Cpf: ")
+    funcao = input("Digite a funcao que trabalha: ")
+    lista_fucionario.append(nome)
+    lista_fucionario.append(data_nascimento)
+    lista_fucionario.append(cpf)
+    lista_fucionario.append(funcao)
+    print(f"\n{nome , data_nascimento , cpf , funcao} adicionado com sucesso.")
+   
+# Função para mostrar fucionario.
+def mostrar(lista_fucionario):
+    if verificar_lista_vazia(lista_fucionario):
+        return
+   
+    print("\n= Lista de fucionario =")
+    for nome in lista_fucionario:
+        print(f"\nNome - {nome}")
+        
+def mostrar(lista_fucionario):
+    if verificar_lista_vazia(lista_fucionario):
+        return
+   
+    print("\n= Lista de fucionario =")
+    for data_nascimento in lista_fucionario:
+        print(f"\nData de nascimento - {data_nascimento}")
+
+def mostrar(lista_fucionario):
+    if verificar_lista_vazia(lista_fucionario):
+        return
+   
+    print("\n= Lista de fucionario =")
+    for cpf in lista_fucionario:
+        print(f"\nCPF - {cpf}")
+
+def mostrar(lista_fucionario):
+    if verificar_lista_vazia(lista_fucionario):
+        return
+   
+    print("\n= Lista de fucionario =")
+    for funcao in lista_fucionario:
+        print(f"\nFunçao - {funcao}")
     
-    print("Escolha a operação:")
-    print("1. Soma")
-    print("2. Subtração")
-    print("3. Multiplicação")
-    print("4. Divisão")
-    
-    operacao = input("Digite o número da operação desejada (1/2/3/4): ")
-    
-    if operacao == '1':
-        resultado = num1 + num2
-        print(f"O resultado da soma é: {resultado}")
-    elif operacao == '2':
-        resultado = num1 - num2
-        print(f"O resultado da subtração é: {resultado}")
-    elif operacao == '3':
-        resultado = num1 * num2
-        print(f"O resultado da multiplicação é: {resultado}")
-    elif operacao == '4':
-        if num2 != 0:
-            resultado = num1 / num2
-            print(f"O resultado da divisão é: {resultado}")
-        else:
-            print("Erro! Divisão por zero não é permitida.")
+       
+# Função para atualizar fucionario.
+def atualizar(lista_fucionario):
+    if verificar_lista_vazia(lista_fucionario):
+        return
+   
+    mostrar(lista_fucionario) # Mostrando lista de usuários.
+    nome_antigo = input("Digite o nome que deseja atualizar: ")
+    if nome_antigo in lista_fucionario:
+        novo_nome = input(f"Digite o novo nome para {nome_antigo}: ")
+        indice = lista_fucionario.index(nome_antigo)
+        lista_fucionario[indice] = novo_nome
+        print(f"{nome_antigo} foi atualizado para {novo_nome}")
     else:
-        print("Operação inválida. Tente novamente.")
+        print(f"\nO nome {nome_antigo} não foi encontrado.")
 
-# Chama a função da calculadora
-calculadora()
+# Função para excluir fucionario.
+def excluir(lista_fucionario):
+    if verificar_lista_vazia(lista_fucionario):
+        return
+   
+    mostrar(lista_fucionario) # Mostrando lista de usuários.
+   
+    nome_remover = input("Digite o nome que deseja remover: ")
+    if nome_remover in lista_fucionario:
+        lista_fucionario.remove(nome_remover)
+        print(f"{nome_remover} foi excluído com sucesso.")
+    else:
+        print(f"O nome {nome_remover} não foi encontrado.")    
+
+
+fucionario = [] # Criando lista de fucionario.
+
+# Menu.
+while True:
+    print("= Gerenciador de fucionario =")
+    print("1 - Adicionar")
+    print("2 - Listar fucionario")
+    print("3 - Atualizar")
+    print("4 - Excluir")
+    print("5 - Sair")
+   
+    opcao = int(input("Digite uma das opções acima: "))
+   
+    match opcao:
+        case 1:
+            adicionar(fucionario)
+        case 2:
+            mostrar(fucionario)
+        case 3:
+            atualizar(fucionario)
+        case 4:
+            excluir(fucionario)
+        case 5:
+            print("\nSaindo do programa.")
+            break
+        case _:
+            print("\nOpção inválida. \nTente novamente.")
+    if opcao != 1:
+        time.sleep(5)
+    os.system("cls || clear")
